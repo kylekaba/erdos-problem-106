@@ -1,5 +1,16 @@
 # Erdős Problem #106 — An AI-Assisted Attack on the Rotated Square-Packing Conjecture
 
+> **Update (Session 3, July 2026):** a third session ("the final assault") added, all
+> adversarially verified: the **Marginal Displacement Theorem** (a signed chord ledger
+> giving the complete axis-parallel theorem in five lines at arbitrary sizes, and deleting
+> the "top-heavy" escape route for counterexamples), the **Columnar Kill** (the conjecture
+> holds for every columnar packing, tilts strictly penalized), **the fall of the 45°
+> fortress** (pure-45° packings satisfy $\sum d \le N$ for all $k \ge 10$; every common
+> orientation — including irrational angles — is closed for $k \ge 10/\sin 2\theta$), an
+> incoherence-charging theorem, a 14-constraint unconditional structure theorem for
+> counterexamples, and the reduction of the sub-Cauchy–Schwarz program to **one remaining
+> lemma**. See `ERDOS_106_REPORT.md` §7D and section 3½ below.
+
 **Problem** ([erdosproblems.com/106](https://www.erdosproblems.com/106)). Let $f(n)$ be the
 maximum of $\sum_i s_i$ over packings of $n$ squares (side lengths $s_i$, **arbitrary
 orientations**, pairwise disjoint interiors) inside the unit square. Erdős conjectured
@@ -110,6 +121,34 @@ squares — is a valid **extremal** packing with $|Av| = \tfrac{k}{k+1} \gg s =
   autocorrelation, sumset/support bounds, any bound $|Av| \le F(g,s)$) is structurally
   incapable of closing the conjecture.
 
+### 3½. Session 3: the final assault (all verified by fresh adversarial passes)
+
+- **Theorem MDT (Marginal Displacement).** For a.e. "good" phase,
+  $P(x)-N \le n-\sum_i d_i\sec\theta_i$ — a signed per-line chord ledger built on the new
+  exact fact that a tilted square's vertical chord equals $d\sec\theta$ *identically* on
+  the middle of its bounding-box range. Consequences: the complete axis-parallel theorem
+  ($\sum d_i \le N+c$, arbitrary sizes, all integer $c>-k$, no Praton reduction) in five
+  lines; **S3′** — every counterexample *unconditionally* owes the union requirement
+  $U_x+U_y+V_x+V_y \ge 2\varepsilon+\text{margins}$ (the top-heavy branch is deleted).
+- **Theorem SD (Columnar Kill).** Any packing that splits into $\le k$ narrow vertical
+  classes satisfies $\sum d_i \le \sum d_i\sec\theta_i \le N$: the conjecture for all
+  columnar packings, exactly tight on the entire known extremal catalogue.
+- **The 45° regime closed at large $k$.** Theorem 45-A: $\varepsilon \le \tfrac14 +
+  \tfrac1{4(N+1)}$ at 45°, all $k$. Theorem 45-B: pure-45° packings satisfy
+  $\sum d_i \le N$ for all $k\ge10$ (open residue $k\in[2,9]$). Theorem CO: every common
+  orientation is closed for $k \ge 10/\sin2\theta$. Plus an exact diamond-container
+  discrepancy formula (verified on 56,000/56,000 shifts) with a Raikov-sumset regime
+  analysis.
+- **Theorem I:** total orientation incoherence is charged to gap area with explicit
+  absolute constants ($G \ge I/5040$; sharper mid-strip forms).
+- **Theorem U:** fourteen simultaneous verified constraints every near-counterexample
+  must satisfy.
+- **The one-lemma reduction.** The Conditional Master Theorem: modulo a single stated
+  lemma (L2: a union-measure phase bound for gap-starved packings),
+  $f(k^2+1) \le k+(1/2-c_0)/k$ for **every** $k$. L2's proof program is scaffolded with
+  one case fully proved and two finite bridges (X1 exposure bookkeeping, X2 dislocation
+  cost) remaining.
+
 ### 4. Impossibility principles (what a correct proof cannot look like)
 
 Proved obstructions: LP/duality gap (fractional packings reach the Cauchy–Schwarz value);
@@ -139,31 +178,36 @@ counting/capture machinery was stress-tested on every adversarial family found.
 
 ## Future directions
 
-Listed in order of leverage; see `ERDOS_106_REPORT.md` §7–§7C for full context.
+Listed in order of leverage; see `ERDOS_106_REPORT.md` §7–§7D for full context. (Items
+resolved during session 3: the S2 ledger is now verified; the top-heavy/capture-squeeze
+branch is closed by MDT; the 45° regime is closed for $k\ge10$.)
 
-1. **Verify Theorem S2's idle/multiplicity ledger** — the one load-bearing assembly step
-   not yet independently checked ([P] → [V]).
-2. **The union-measure phase lemma** (the weakened form of the "mod-1 Rigidity Lemma"):
-   prove that gap-starvation ($G+V \le 2c$) forces the union of bbox-extreme-phase arcs
-   of length $O(t_0+\sqrt c)$ to have measure $< 2\varepsilon$. This single statement,
-   combined with the already-verified S3 + Lemma α′-edge + Theorem W, would give the
-   **first unconditional bound $f(k^2+1) \le k + (1/2-c_0)/k$ below Cauchy–Schwarz** for
-   the rotated problem.
-3. **The capture-side squeeze at full strength:** on any counterexample, a shift set of
-   measure $\ge 1-g$ exhibits a bijective near-grid capture plus one idle
-   $\varepsilon$-large square; quantify the rigidity of sustaining this across a
-   positive-measure shift set (all measure-route alternatives are provably dead).
-4. **The $45°$ regime:** provably out of reach of every counting scheme catalogued here;
-   the geometric jaw (α′/T2) is the only tool that bites. A dedicated diamond-container
-   discrepancy analysis is the concrete next step.
-5. **By Singh's reduction** ([arXiv:2601.22163](https://arxiv.org/abs/2601.22163)),
+1. **Lemma L2 — the last gate.** Prove: every packing with $\varepsilon > 1/2 - c_2$ has
+   $U_x+U_y+V_x+V_y < 1-2c_2$ (a pure union-measure statement about defect-phase arcs).
+   By the verified Conditional Master Theorem this alone yields the **first unconditional
+   bound $f(k^2+1) \le k+(1/2-c_0)/k$ below Cauchy–Schwarz**. The scaffolded program:
+   Case II (clustered whisper) is proved; bridge X1 (steep-exposure bookkeeping via
+   α′-edge, Theorem I, and the Wall lemmas) is finite geometry; bridge X2 (whisper
+   dislocation cost — the accumulation obstruction) is the one deep gap. MDT's
+   localization ($t \le \int_{\cup B^x}(P-N)_+$: the entire width surplus lives on the
+   bad arcs) pins where the proof must work.
+2. **Close $k \in [2,9]$ at 45°** (a second-level refinement of Theorem 45-B's
+   window/δ scheme; $k=9$ peaks at $0.90$ of the needed gap) and port Theorem CO into
+   the trichotomy as the quantitative (I)→gap bridge at walls.
+3. **The wedge displacement lemma** (G4's proposal): convert the $\Omega(k)$ forced
+   wedges of any non-columnar enemy into a positional phase-scatter lower bound — the
+   spatial replacement for mod-1 rigidity, feeding L2.
+4. **By Singh's reduction** ([arXiv:2601.22163](https://arxiv.org/abs/2601.22163)),
    $k\,(f(k^2+1)-k)$ is non-decreasing, so the full conjecture is equivalent to
-   $f(k^2+1) \le k + o(1/k)$ along any subsequence — the asymptotic version of item 2's
-   program ($c_0 \to 1/2$) is the road to the complete conjecture.
-6. **Independent human verification of everything in this repository** — especially the
+   $f(k^2+1) \le k + o(1/k)$ along any subsequence — the asymptotic version of item 1's
+   program ($c_0 \to 1/2$) is the road to the complete conjecture; the honest caveat is
+   that the current architecture's constants cap $c_0$ at $\sim 2\cdot10^{-4}$, so the
+   full conjecture likely needs a qualitatively sharper interface tax.
+5. **Independent human verification of everything in this repository** — especially the
    [V]-tagged theorems, which are candidates for standalone publication if they hold:
-   T2–T5 (first rotated upper bounds beyond Cauchy–Schwarz), the restricted-FCMB proof
-   of BKU, Theorem C″, Lemma α′, and the $f(2)=1$ rigidity proof.
+   MDT and its five-line axis-parallel theorem, the Columnar Kill, Theorems 45-A/45-B/CO,
+   T2–T5, Theorem C″, Lemma α′, Theorem I, Theorem U, the restricted-FCMB proof of BKU,
+   and the $f(2)=1$ rigidity proof.
 
 ## Key references
 

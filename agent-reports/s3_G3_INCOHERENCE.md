@@ -1,0 +1,56 @@
+## CLAIMS
+
+Full proofs and constants: `/Users/kylekabasares/Desktop/erdos-106/agent-reports/session3-derivations/G3_BRIDGE_I_derivations.md` (durable copy; also in `.../scratchpad/session3/G3/`); machine checks `G3_g3_checks.py` (same directory, ALL PASS). Notation as in ERDOS_106_REPORT.md; folded circle Theta = R/(pi/2)Z with metric dist_f <= pi/4; standing hypothesis (H): packing of N+1 squares in T, all sides in [1-eta, 1+eta], eta <= 1/20.
+
+**CLAIM 1 (Lemma E — frame-optimized strip payment; the per-edge unit of the charging scheme). PROVED (reduction to alpha'-edge [V, corrected 1/240]). Confidence 0.93.**
+For an ordered edge (S, e): R_e := {p not in S : dist(p,e) <= 1/4, outward side of aff(e)} (with end caps); Occ(e) := other squares whose interior meets R_e; A(e) := minimal folded arc covering the occupant orientations, gamma(e) = its center, phi0(e) = its half-length, alpha(e) := dist_f(beta_S, gamma(e)). If R_e is in T and tan alpha >= 2 tan phi0, then |R_e \ packing| >= (1/240) min(tan alpha - tan phi0, 1/3); if Occ(e) is empty, |R_e| >= 0.2375 is all gap. The frame optimization (gamma = arc center) is what turns alpha'-edge's "phi0-coherent neighbors in a given frame" into an intrinsic per-edge functional; the elementary bridges tan(2x) >= 2 tan x and tan a - tan b >= a - b (machine-checked) give the angle form: payment >= (1/240) min((alpha - 2 phi0)_+, 1/3) whenever alpha >= 2 phi0.
+
+**CLAIM 2 (Lemma E-wall — the wall is an orientation-0 occupant; the descent base case). PROVED, constant machine-optimized. Confidence 0.9.**
+If R_e exits T through exactly one wall, adjoin the wall to the occupant set with orientation 0 (A_w(e) := minimal arc covering {0} and the occupants). Then under tan alpha >= 2 tan phi0: |(R_e ∩ T) \ packing| >= **(1/252)** min(tan alpha - tan phi0, 1/3). Proof: rerun alpha'-edge with the floor as one extra covering envelope — a single infinite edge of in-frame folded slope <= phi0, whose deficit function D_fl = l - T_fl is monotone with slope >= tau_1 and nonnegative on the window (e lies in T), so it obeys the same Step-2 anchor bound; crest count J -> J+1 <= 23.76; lambda-dichotomy re-optimized: 1/243.8, stated 1/252. This is exactly Route B's wall machinery in charging form: a tilted square whose strip reaches a wall through coherent company pays its own tilt. Corner edges (strip exits two walls) are excluded; there are at most 16 of them (area count).
+
+**CLAIM 3 (Lemma E-narrow — mid-span localization; kills cap contamination). PROVED. Confidence 0.9. The main new geometric lemma.**
+The full strip's END CAPS pull lateral/diagonal same-orientation neighbors into Occ(e), dragging gamma toward beta_S and killing payments at genuinely torn interfaces (this defeats full-strip charging on the ±theta checkerboard AND on gradient rows — discovered by adversarial self-attack, see DEAD ENDS 1). Fix: trim. With e' := e minus 0.22 of arclength at each end and h' := 1/8, define R'_e, Occ', A', alpha', phi0' verbatim. Then (window length X' = (d*-0.44)cos alpha' in [0.36, 0.61]; the alpha'-edge proof reruns with re-derived crest count — poke zones shrink by the trim — and re-optimized assembly):
+|R'_e \ packing| >= **(1/650)** min(tan alpha' - tan phi0', 1/3), and >= **(1/300)**(tan alpha' - tan phi0') when alpha' <= 0.30. Machine-verified constants: 1/639.8 and 1/287.9.
+**Corollary F (clean facing interfaces pay pairwise mismatch).** If the mid-strip contains exactly one other square W ("clean facing interface"), then phi0' = 0, alpha' = m(S,W) = folded mismatch, and the interface pays >= (1/650)min(tan m, 1/3), >= m/300 for m <= 0.30 — with NO spread condition. This is the first verified-component statement that charges raw pairwise mismatch, and it does not contradict the pairwise-charging impossibility (report §6.6) because it requires the strip witness (the diamond chain is internally coherent: never charged).
+
+**CLAIM 4 (Multiplicity Lemma). PROVED. Confidence 0.97.**
+A gap point lies in at most **20** strips R_e (at most 10 squares within 1/4 by area in B(p, 1.735); at most 2 outward edges per square since opposite outward half-planes are separated by a slab of width d* >= 0.95). Measured on tests: max 6.
+
+**CLAIM 5 (THEOREM I — the charging-scheme theorem; the deliverable). PROVED. Confidence 0.92.**
+Define the total incoherence I := sum over non-corner ordered edges of pi(e), where pi(e) := min(tan alpha(e) - tan phi0(e), 1/3) if tan alpha >= 2 tan phi0 (wall arcs A_w for single-wall edges), 1/3 for empty interior strips, else 0. Then every packing satisfying (H) has
+**G >= I / 5040**, and in angle form G >= (1/5040) sum min((alpha(e) - 2 phi0(e))_+, 1/3).
+**Theorem I-narrow:** with the mid-strip credits, G >= I'/13000, and G >= (1/6000) sum (tan alpha' - tan phi0') over edges with alpha' <= 0.30. Proofs: Claims 1–3 per edge, Claim 4 for disjointification; 252x20 = 5040, 650x20 = 13000, 300x20 = 6000. Safe combination: G >= max(I/5040, I'/13000). So c3 = 1/5040 (full-strip incoherence), 1/13000 (mid-strip), **1/6000 for the small-mismatch mid-strip form that the enemy regime actually inhabits**.
+
+**CLAIM 6 (Corollary H — the enemy handoff; exactly what my I controls, stated for G4/G2). PROVED. Confidence 0.9.**
+For an enemy (eps > 1/2 - c) with **c <= 1/1000, k >= 32**: all sides lie in [0.95, 1.05] except at most one outlier (from Sum(d-1)^2 <= 2c + 1/(N+1)); the outlier plus corners contaminate <= 58 edges (set E_O ∪ E_exc). On the rest: I <= 10080c, I' <= 26000c, hence
+(a) #{edges with alpha >= 2 phi0 + xi} <= 10080c/min(xi, 1/3) — at c = 1/1000, <= 31 strongly torn strips out of ~4k^2;
+(b) #{clean facing interfaces with mismatch >= Delta} <= 12000c/Delta (Delta <= 0.3) — at c = 1/1000, Delta = 0.1: <= 120 out of ~2k^2, i.e. **< 1% of interfaces torn for k >= 35**;
+(c) wall edges: any square whose strip reaches a wall through phi0-coherent company has tan(tilt) < 2 tan phi0 + 252·(local gap) — wall anchoring quantitatively.
+**What I does NOT control (the honest interface):** the spread phi0 itself; mismatch at intruded/rough interfaces; long-chain drift (each hop coherent, total travel unbounded at zero I-cost); any mod-1 phase data. The (II)-side must consume coherence as "per-strip and per-facing-pair mismatch < Delta off an O(c/Delta)-size exceptional edge set", not as "global orientation arc".
+
+**CLAIM 7 (Shielding recursion: structure proved, termination not; conditional descent and k-leverage). Mixed. Confidence 1.0 in the meta-statement.**
+- Lemma R (proved, trivial): an unpaid strip (alpha < 2 phi0) always contains two occupants realizing a LARGER mismatch 2 phi0 > alpha within distance 1.55 — the triangle-inequality shield made exact. The naive recursion fails precisely because that pair need not be 1/4-adjacent (no new edge to recurse on): pair-to-edge is the broken step.
+- Lemma C (proved): along any 1/4-adjacency chain, sum of link mismatches >= end-to-end folded distance; adjacency at range 1/4 is symmetric (the 1/4-collar is the union of the four strips).
+- Proposition D (proved CONDITIONAL on clean chains): if a square of tilt theta_0 reaches a wall through clean facing links with disjoint mid-strips, G >= theta_0/300 (or /6000 with multiplicity); k disjoint chains give G >= (k/6000)·(avg column max tilt).
+- k-leverage audit (assignment's self-check, re-derived): even granted, this yields T* <= 12000c/k, while whisper tilts ~1/(2k^2) sit far below — **Bridge (I) can never kill the whisper enemy; its exact role is Corollary H's coherence forcing, feeding Bridge (II)/Theorem W/S3.** Confirmed, no overclaim.
+
+## CHECKS
+
+- Elementary inequalities tan(2x) >= 2tan x, tan a - tan b >= a - b, 2/tau - tau >= 1: grid/random, 0 violations.
+- Constants: E-wall 1/243.8 (stated 252); E-narrow 1/639.8 uniform, 1/287.9 small-mismatch (stated 650/300); tau_2 side condition 2h'/X' >= 1/3 asserted over the whole parameter range.
+- ±theta checkerboard (theta = 0.12, 6x6, SAT-separating-axis disjoint): mid-strip of an interior edge contains EXACTLY the facing neighbor at -theta (cap contamination removed by the 0.22 trim, margin 0.095); measured uncovered 0.0472 vs Corollary F bound 0.00061 — holds with 77x slack; strip multiplicity max 6 <= 20.
+- Adversarial suite (paper): axis staircases/T12/deficient column give I = 0 (correct — no false positives; their physics is phase drift, not incoherence); grain-in-sea reproduces the alpha' jaw per edge; single-intermediate shield pays both half-mismatches (no dodge); diamond chain internally uncharged (consistent with §6.6).
+
+## DEAD ENDS
+
+1. **Full-strip charging is blind to gradients and checkerboards** — end-cap contamination by same-orientation lateral neighbors (alpha ~ phi0 at every edge). Theorem I alone is NOT a superset of the gradient corollary; E-narrow is the necessary primary tool. Do not build on full-strip I for texture arguments.
+2. **The naive shielding recursion does not terminate**: Lemma R transfers unpaid mismatch to a larger mismatch, but between squares that need not be adjacent — no edge to recurse on. Any future descent proof must recurse on DEPTH (postponement layers), not on mismatch size.
+3. **I does not bound orientation drift**: a chain of J hops each with mismatch Delta/2 (all strips coherent) accumulates travel J·Delta/2 at zero I-cost. Bridge (II) cannot ask Bridge (I) for a global orientation arc — only for per-hop coherence (Corollary H(b)). This is the same accumulation obstruction as Route B Dead End 5, now precisely located.
+4. **E-narrow still dodgeable by staggered rough rows** (lateral neighbor's corner enters the mid-strip when rows are height-staggered) — the rough-line alpha' residue, unchanged.
+5. k-leverage cannot reach whisper tilts (arithmetic re-verified) — as the assignment predicted.
+
+## BEST NEXT STEP
+
+Close **GAP-I** (derivations §7): the two-scale facing-function version of E-narrow. Proved ingredients already in place: the facing function along e' has <= 3 breakpoints (convexity), so a sub-window of length >= X'/4 >= 0.09 with a single facing square always survives, and E-narrow's Step-5 arithmetic still pays at window 0.09 (constant ~1/6500). What remains is the multi-layer postponement ledger: when the facing square D has beta_D near beta_S (legitimate shield), the interface is postponed >= 0.51 deeper with a DISJOINT strip — recursion depth <= 2k, strips depth-indexed hence never double-charged, and Lemma C guarantees the postponed mismatch survives to a deeper interface or the wall (Lemma E-wall, Claim 2, is the proved base case). That single bookkeeping lemma would upgrade Proposition D to unconditional, giving G >= c·(per-column orientation travel) — the full form of Gap A — and, combined with Corollary H feeding Theorem W/S3 on the coherent side, would close trichotomy jaw (I) entirely. Secondary: hand Corollary H(b) to G4/G2 in exactly the stated per-hop form, and have a verifier re-derive the E-wall floor-crest step (my only constant not covered by the sv_V3 verification).
+
+Files: `/Users/kylekabasares/Desktop/erdos-106/agent-reports/session3-derivations/G3_BRIDGE_I_derivations.md`, `.../G3_g3_checks.py`; scratch at `/private/tmp/claude-501/-Users-kylekabasares-Desktop-erdos-106/6b0597a9-48bd-4e8c-a957-7fc4a05f26d8/scratchpad/session3/G3/`.

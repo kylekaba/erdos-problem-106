@@ -60,6 +60,17 @@ open.**
    remaining gaps consolidated into a **single mod-1 rigidity lemma**.
 7. **Strong numerical evidence for the conjecture** (§8): certified optimization at
    $n=2,5,10,17$ never beats $k$ and always collapses to axis-parallel.
+8. **Session-3 final assault (§7D), all adversarially verified:** the **Marginal
+   Displacement Theorem** (signed chord ledger; the complete axis-parallel theorem in five
+   lines at arbitrary sizes; deletes the top-heavy escape — every counterexample
+   unconditionally owes the union requirement); the **Columnar Kill** (the conjecture
+   holds for all columnar packings, tilts strictly penalized); **the fall of the 45°
+   fortress** (pure-45° closed to $\sum d\le N$ for all $k\ge10$; every common
+   orientation closed for $k\ge10/\sin2\theta$; first sub-C–S bound
+   $\varepsilon\le\tfrac14+\cdot$ at 45° for all $k$); the incoherence-charging theorem
+   ($G\ge I/5040$); a 14-constraint unconditional Structure-of-Counterexamples theorem;
+   and the reduction of the entire sub-Cauchy–Schwarz program to **one remaining lemma**
+   (L2, the union-measure bound) with two scaffolded finite bridges.
 
 ---
 
@@ -592,15 +603,104 @@ no arc-count, no cover structure. That statement, plus S3 and α′-edge, gives 
 unconditional $f(k^2+1)\le k+(1/2-c_0)/k$; by Singh's monotonicity, pushing $c_0\to1/2$
 asymptotically would prove the conjecture.
 
+### 7D. Session 3 (the final assault): MDT, the Columnar Kill, the fall of 45°, and the one-lemma reduction
+
+Six attack agents plus four adversarial verifiers (G1, VA, VB, VC). Every claim below is
+**[V]** (independently re-derived and machine-checked from fresh code) unless noted. Full
+reports: `agent-reports/s3_G*.md`, `sv3_V*.md`; derivations:
+`agent-reports/session3-derivations/`.
+
+**Promotions.** The entire session-2 final-push suite is now [V]: Lemma 0 (chord
+$=d\sec\theta$ identically on the bbox middle region), Lemma A″, Theorem S2 including its
+idle/multiplicity ledger, S1/S3/S4, Lemma K, Theorem K, the dip-structure theory, and the
+$\kappa$-neutralization (four minor errata applied, none load-bearing).
+
+**Theorem MDT (Marginal Displacement) [V] — the sharpest counting theorem of the program.**
+For every packing of $n$ squares (any sizes, any orientations) and a.e. good $x$-phase
+($x\bmod1\notin\bigcup_iB_i^x$):
+$$P(x)-N\;\le\;\sum_i p_i(x)\,(1-d_i\sec\theta_i)\;\le\;n-\sum_i d_i\sec\theta_i,$$
+via a signed per-line chord ledger (per-line capacity + Lemma 0 pinning + two elementary
+facts: $d\sec\theta<1\Rightarrow p\le1$ at good phases; $d\sec\theta\ge1\Rightarrow
+w\ge1\Rightarrow p\ge1$ always). Exactly tight (value $1$, with the predicted measures) on
+every known extremal. Consequences, all [V]:
+- **The complete axis-parallel theorem in five lines**: for AP packings of $k^2+2c+1$
+  squares, arbitrary sizes, any integer $c>-k$: $\sum d_i\le N+c$ (pointwise-a.e.
+  $P\le N+c$ + integrality + $\mathbb E[P]=\sum d_i$) — recovering BKU's full Theorem 1.1
+  range without Praton's reduction. Honest attribution (VA): the AP skeleton mirrors the
+  Koizumi–Ueoro chord argument; the new content is the a.e.-pointwise form, the
+  one-stroke $c$-range, and the tilted extension. (Equality $g=k+c/k$ only for $-k<c<k$.)
+- **S2′/S3′: the top-heavy escape is deleted.** Every packing with $\varepsilon>0$ has no
+  saturating phases on either axis (some $p_i=0$ a.e. good), hence S2 holds with the
+  $\beta<1$ hypothesis removed, and **every enemy unconditionally owes the union
+  requirement** $U_x+U_y+V_x+V_y\ge2\varepsilon+\sum_{w<1}m_i+\sum_{w\ge1}(1-d_i)^2$.
+  Branch (i) of S3 — and with it Lemma L1 of the master assembly — is gone.
+- Corrected $\beta$-frontier: the invariant equal to $1$ on every known extremal is
+  $n-\sum d_i\sec\theta_i$ (T12 tilings have $\beta=b$, unbounded); multiplicity mass
+  $=$ gap folding-overlap, and the "reverse OC-FCMB" conjecture is false on $U_k$.
+
+**Theorem SD (Columnar Kill) [V].** Any packing partitionable into $\le k$ *narrow vertical
+classes* (all $x$-projections of a class within a length-$X$ interval, every member with
+$d_i(\cos\theta_i-\sin\theta_i)>X/2$) satisfies $\sum d_i\le\sum d_i\sec\theta_i\le N$:
+**Erdős's conjecture holds for all columnar packings, with tilts strictly penalized** —
+exactly tight on the entire extremal catalogue. Kills the running-bond enemy outright,
+top-heavy included (Helly-midline chord mechanism; no phases, no stacking). Companion
+spatial theorems [V]: over-full abscissas carry $\int(n(x)-k)_+\ge t$; $\beta<1$ forces a
+physical *wedge* in every over-full stack; AP with $b_0<1+\varepsilon$ confines all
+over-full abscissas to a single positional deficient column.
+
+**The 45° fortress fell [V].** Via the sharpened Wall Lemma (coefficient
+$\sin\theta\cos\theta/2$, tight at 45°) applied to floor and ceiling (provably disjoint
+gap regions): **Theorem 45-A**: pure-45° packings satisfy
+$\varepsilon\le\tfrac14+\tfrac{1}{4(N+1)}$ for every $k$ — the first sub-Cauchy–Schwarz
+bound at the hardest angle. **Theorem 45-B** (with VC's verified sharpening): pure-45°
+packings satisfy $\sum d_i\le N$ **for all $k\ge10$** (open residue: $k\in[2,9]$).
+**Theorem CO**: for every common folded tilt $\theta$ — including all irrational angles —
+$\sum d_i\le N$ whenever $k\ge10/\sin2\theta$, extending T3 beyond Pythagorean
+divisibility. Also [V]: the exact diamond-container discrepancy formula (verified
+56,000/56,000 shifts), whose four-regime analysis (with a load-bearing use of the
+Raikov/Macbeath circle sumset theorem) gives sub-C–S bounds for the all-short pure-45°
+case at asymptotic density $3/4$ of $k$ by counting alone.
+
+**Theorem I (incoherence charging) [V, constants verified].** With per-edge mismatch
+functionals over $1/4$-strips (frame-optimized, wall-as-occupant, mid-strip localization):
+$G\ge I/5040$ (full-strip), $G\ge I'/13000$, and $G\ge\tfrac1{6000}\sum(\tan\alpha'-
+\tan\varphi_0')$ in the small-mismatch regime the enemy inhabits; first verified
+pairwise-mismatch charge at clean facing interfaces ($\ge m/300$, $m\le0.3$); enemy
+corollary: at most $O(c/\Delta)$ torn interfaces (VC-corrected constants). Honest
+boundaries: full-strip charging is blind to gradients (mid-strip form is primary); the
+accumulation obstruction (drift at zero incoherence cost) is precisely located.
+
+**Structure-of-Counterexamples Theorem U [V]** (unconditional): every packing with
+$\varepsilon>1/2-c$ satisfies fourteen simultaneous verified constraints (G2's report,
+§Claim 9) — including $t\ge2\varepsilon$, non-AP, no common frame, $k>1/(2c)-1$ if
+saturating, the S3′ union obligation, wall discipline, and interface-tear caps.
+
+**The one-lemma reduction (the program's final state).** With L1 deleted by MDT, the
+Conditional Master Theorem reads:
+
+> **Theorem (conditional on Lemma L2).** If every packing with $k\ge K_2$ and
+> $\varepsilon>1/2-c_2$ satisfies $U_x+U_y+V_x+V_y<1-2c_2$, then
+> $f(k^2+1)\le k+(1/2-c_0)/k$ for **every** $k\ge1$ (Singh transfers small $k$), with
+> $c_0=\min(c_2,10^{-5})$ under the scaffolded constants.
+
+L2's proof program (the coherence trichotomy) has Case II (clustered whisper) fully
+proved; the two remaining finite bridges are X1 (steep-exposure bookkeeping;
+$45°$-single-square attack caps any $c_0$ from this route at $\sim2\cdot10^{-4}$) and X2
+(whisper dislocation cost — the one deep gap, the accumulation obstruction). The width
+surplus is now localized ON the bad arcs ($t\le\int_{\cup B^x}(P-N)_+$, MDT Claim 6),
+which is where any anti-clustering proof must work.
+
 **Why the full conjecture is genuinely hard** (the honest summary): by Singh's monotonicity
 the conjecture is equivalent to the *asymptotic* bound $f(k^2+1)\le k+o(1/k)$, i.e. to
 ruling out excesses at the scale of *one lattice point over the whole $k\times k$ arena*;
 the criticality identity shows the problem is exactly balanced in expectation at every tilt
-angle; and the extremal set is massively non-unique (column tilings, split-cell families).
-Every general tool (convexity, duality, averaging, single-frame counting) is provably
-neutral; what remains is the genuinely combinatorial interplay of integer pigeonholes with
-the geometry of gaps — which is exactly where BKU won the axis-parallel case, and where the
-two named gaps live.
+angle; and the extremal set is massively non-unique (column tilings, split-cell families,
+the deficient-column manifold). Every general tool (convexity, duality, averaging,
+single-frame counting, gap-mass measures, phase-spread anti-concentration) is provably
+neutral or dead; what remains after three sessions is a single union-measure rigidity
+statement (L2) whose two finite bridges are scaffolded but unproved — plus the honest
+possibility that closing $c_0\to1/2$ (the full conjecture) needs a qualitatively sharper
+interface tax than any constant-chasing in this architecture.
 
 ---
 

@@ -1,0 +1,116 @@
+==============================================================================
+[PASS] Lemma0 chord<=d.sec everywhere  exceed=0
+[PASS] Lemma0 chord==d.sec on middle region  worst=4.44e-16
+[PASS] LemmaK ineq (I) exhaustive [-8,8]^2  viol=0
+[PASS] LemmaK ineq (II) exhaustive [-8,8]^2  viol=0
+[PASS] LemmaK MC (>=200k independent law pairs)  pairs=237139, min(E-mu1mu2)=5.053e-02
+[PASS] LemmaK mu<=1 necessary (phi=psi=3: 5<9)  
+[PASS] LemmaK equality-iff-Bernoulli FAILS at boundary (erratum expected)  E_a=0.0 (=0=mu1mu2, psi not 0/1), E_b=0.5 (=1/2=mu1mu2, psi not 0/1)
+[PASS] Theorem K: kappa' >= t^2 (400 random arc systems, t in [0,1])  viol=0
+[PASS] Identity kappa = 1-2t+kappa'  viol=0
+[PASS] D1/D2/D3 exact on 800 random axes  viol=0
+[PASS] Claim3(a): equidistributed half-arcs flat coverage = M/2  coverage values=[8]
+[PASS] Claim3(b): kappa=0 attainable at arc level (all w_i=1)  kappa=0.0
+[PASS] Identity (1-w)^2=(1-d)^2-d.sig(2-d-w)  max err=8.88e-16
+[PASS] T4 bridge: (1-1/u1) <= sigma pointwise (=> tau >= T >= eps)  
+[PASS] sigma <= sin th and sigma <= th pointwise  
+[PASS] S3(i): beta>=1 <=> b0>=eps+Gamma; Gamma>=0; positive-part identity  
+[PASS] Diamond pair: kappa == (1-t)^2 exactly (Theorem K tight)  kappa=0.4497570055 (1-t)^2=0.4497570055
+------------------------------------------------------------------------------
+[PASS] col_AP_k2: valid packing (SAT + containment)  
+[PASS] col_AP_k2: budget C<=N everywhere  maxC=4
+[PASS] col_AP_k2: c_i = p_i q_i on E (all i, all E-shifts)  
+[PASS] col_AP_k2: ledger |I| = 1 + mu on Av∩E  
+[PASS] col_AP_k2: idles are short / multi-captures are long  
+    col_AP_k2: [INFO beta>=1, pinning not implied] both-missed=False (unique-idle measure=0.6667)
+[PASS] col_AP_k2: >=2-idle events inside Vx/Vy union  (measure=0.0000)
+[PASS] col_AP_k2: beta = 1.0000  beta=1.000000
+    col_AP_k2: |Av|=0.6667 S2-RHS=0.3333 beta=1.0000 Ux=0.0000 Uy=0.0000 Vx=0.0000 Vy=0.0000
+[PASS] col_AP_k2: S2 conclusion VIOLATED (sharpness, beta>=1)  |Av|-RHS=0.3333
+[PASS] col_AP_k2: kappa >= (1-Ux-Uy-|Av|)_+  kappa=1.0000 bound=0.3333
+[PASS] col_AP_k2: L_i>=0 and MPI D>=P+Q-2N-1 (numeric support for T6[P])  
+[PASS] col_AP_k2: K' (eps+tau)_+^2 <= 2 tau - sum m  lhs=0.0000 rhs=0.0000
+[PASS] col_AP_k2: |Av|=2/3, RHS=1/3, violation=(k-1)/(k+1)=1/3  
+[PASS] col_AP_k3: valid packing (SAT + containment)  
+[PASS] col_AP_k3: budget C<=N everywhere  maxC=9
+[PASS] col_AP_k3: c_i = p_i q_i on E (all i, all E-shifts)  
+[PASS] col_AP_k3: ledger |I| = 1 + mu on Av∩E  
+[PASS] col_AP_k3: idles are short / multi-captures are long  
+    col_AP_k3: [INFO beta>=1, pinning not implied] both-missed=False (unique-idle measure=0.7500)
+[PASS] col_AP_k3: >=2-idle events inside Vx/Vy union  (measure=0.0000)
+[PASS] col_AP_k3: beta = 1.0000  beta=1.000000
+    col_AP_k3: |Av|=0.7500 S2-RHS=0.2500 beta=1.0000 Ux=0.0000 Uy=0.0000 Vx=0.0000 Vy=0.0000
+[PASS] col_AP_k3: S2 conclusion VIOLATED (sharpness, beta>=1)  |Av|-RHS=0.5000
+[PASS] col_AP_k3: kappa >= (1-Ux-Uy-|Av|)_+  kappa=1.0000 bound=0.2500
+[PASS] col_AP_k3: L_i>=0 and MPI D>=P+Q-2N-1 (numeric support for T6[P])  
+[PASS] col_AP_k3: K' (eps+tau)_+^2 <= 2 tau - sum m  lhs=0.0000 rhs=0.0000
+[PASS] col_tilt_k2_th.05: valid packing (SAT + containment)  
+[PASS] col_tilt_k2_th.05: budget C<=N everywhere  maxC=4
+[PASS] col_tilt_k2_th.05: c_i = p_i q_i on E (all i, all E-shifts)  
+[PASS] col_tilt_k2_th.05: ledger |I| = 1 + mu on Av∩E  
+[PASS] col_tilt_k2_th.05: idles are short / multi-captures are long  
+    col_tilt_k2_th.05: [INFO beta>=1, pinning not implied] both-missed=False (unique-idle measure=0.4872)
+[PASS] col_tilt_k2_th.05: >=2-idle events inside Vx/Vy union  (measure=0.0000)
+    col_tilt_k2_th.05: |Av|=0.5623 S2-RHS=0.5889 beta=1.0905 Ux=0.0639 Uy=0.1917 Vx=0.0000 Vy=0.0000
+[PASS] col_tilt_k2_th.05: kappa >= (1-Ux-Uy-|Av|)_+  kappa=1.0000 bound=0.1822
+[PASS] col_tilt_k2_th.05: L_i>=0 and MPI D>=P+Q-2N-1 (numeric support for T6[P])  
+[PASS] col_tilt_k2_th.05: K' (eps+tau)_+^2 <= 2 tau - sum m  lhs=0.0000 rhs=0.1210
+[PASS] diamond_k1: valid packing (SAT + containment)  
+[PASS] diamond_k1: budget C<=N everywhere  maxC=1
+[PASS] diamond_k1: c_i = p_i q_i on E (all i, all E-shifts)  
+[PASS] diamond_k1: ledger |I| = 1 + mu on Av∩E  
+[PASS] diamond_k1: idles are short / multi-captures are long  
+[PASS] diamond_k1: unique idle is BOTH x-missed and y-missed (p=q=0)  (unique-idle measure=0.0000)
+[PASS] diamond_k1: >=2-idle events inside Vx/Vy union  (measure=0.0000)
+    diamond_k1: |Av|=0.4426 S2-RHS=2.2249 beta=0.6706 Ux=1.0000 Uy=1.0000 Vx=0.0000 Vy=0.0000
+[PASS] diamond_k1: S2 inequality |Av| <= RHS (beta<1)  |Av|=0.4426 RHS=2.2249
+[PASS] diamond_k1: kappa >= (1-Ux-Uy-|Av|)_+  kappa=0.4504 bound=0.0000
+[PASS] diamond_k1: L_i>=0 and MPI D>=P+Q-2N-1 (numeric support for T6[P])  
+[PASS] diamond_k1: Theorem K kappa >= (1-t)^2  kappa=0.4504 (1-t)^2=0.4498 t=0.3294
+[PASS] diamond_k1: K' (eps+tau)_+^2 <= 2 tau - sum m  lhs=0.1085 rhs=0.4418
+[PASS] bigAP_k2: valid packing (SAT + containment)  
+[PASS] bigAP_k2: budget C<=N everywhere  maxC=4
+[PASS] bigAP_k2: c_i = p_i q_i on E (all i, all E-shifts)  
+[PASS] bigAP_k2: ledger |I| = 1 + mu on Av∩E  
+[PASS] bigAP_k2: idles are short / multi-captures are long  
+    bigAP_k2: [INFO beta>=1, pinning not implied] both-missed=False (unique-idle measure=0.1500)
+[PASS] bigAP_k2: >=2-idle events inside Vx/Vy union  (measure=0.2700)
+    bigAP_k2: |Av|=0.4200 S2-RHS=1.1700 beta=1.5000 Ux=0.0000 Uy=0.0000 Vx=0.3000 Vy=0.3000
+[PASS] bigAP_k2: kappa >= (1-Ux-Uy-|Av|)_+  kappa=1.4000 bound=0.5800
+[PASS] bigAP_k2: L_i>=0 and MPI D>=P+Q-2N-1 (numeric support for T6[P])  
+[PASS] bigAP_k2: K' (eps+tau)_+^2 <= 2 tau - sum m  lhs=0.0000 rhs=0.0000
+[PASS] long_tilted_k2: valid packing (SAT + containment)  
+[PASS] long_tilted_k2: budget C<=N everywhere  maxC=4
+[PASS] long_tilted_k2: c_i = p_i q_i on E (all i, all E-shifts)  
+[PASS] long_tilted_k2: ledger |I| = 1 + mu on Av∩E  
+[PASS] long_tilted_k2: idles are short / multi-captures are long  
+    long_tilted_k2: [INFO beta>=1, pinning not implied] both-missed=True (unique-idle measure=0.4284)
+[PASS] long_tilted_k2: >=2-idle events inside Vx/Vy union  (measure=0.0784)
+    long_tilted_k2: |Av|=0.5470 S2-RHS=1.0130 beta=1.1600 Ux=0.0653 Uy=0.0653 Vx=0.1319 Vy=0.1319
+[PASS] long_tilted_k2: kappa >= (1-Ux-Uy-|Av|)_+  kappa=1.0569 bound=0.3224
+[PASS] long_tilted_k2: L_i>=0 and MPI D>=P+Q-2N-1 (numeric support for T6[P])  
+[PASS] long_tilted_k2: K' (eps+tau)_+^2 <= 2 tau - sum m  lhs=0.0000 rhs=0.0726
+[PASS] tilt30_k1: valid packing (SAT + containment)  
+[PASS] tilt30_k1: budget C<=N everywhere  maxC=1
+[PASS] tilt30_k1: c_i = p_i q_i on E (all i, all E-shifts)  
+[PASS] tilt30_k1: ledger |I| = 1 + mu on Av∩E  
+[PASS] tilt30_k1: idles are short / multi-captures are long  
+[PASS] tilt30_k1: unique idle is BOTH x-missed and y-missed (p=q=0)  (unique-idle measure=0.1323)
+[PASS] tilt30_k1: >=2-idle events inside Vx/Vy union  (measure=0.0000)
+    tilt30_k1: |Av|=0.4608 S2-RHS=1.2905 beta=0.9951 Ux=0.4856 Uy=0.4856 Vx=0.0000 Vy=0.0000
+[PASS] tilt30_k1: S2 inequality |Av| <= RHS (beta<1)  |Av|=0.4608 RHS=1.2905
+[PASS] tilt30_k1: kappa >= (1-Ux-Uy-|Av|)_+  kappa=0.6382 bound=0.0000
+[PASS] tilt30_k1: L_i>=0 and MPI D>=P+Q-2N-1 (numeric support for T6[P])  
+[PASS] tilt30_k1: Theorem K kappa >= (1-t)^2  kappa=0.6382 (1-t)^2=0.6387 t=0.2008
+[PASS] tilt30_k1: K' (eps+tau)_+^2 <= 2 tau - sum m  lhs=0.0403 rhs=0.2602
+------------------------------------------------------------------------------
+[PASS] A'' mech [col_AP_k2]: over-full line, chords=d.sec, sum<=k, deficit>=1  (200/200 good full-hit x)
+[PASS] col_AP_k2 good-full-hit measure ~ k/(k+1)=2/3 (beta=1 sharpness)  
+[PASS] A'' mech [col_tilt_k2]: over-full line, chords=d.sec, sum<=k, deficit>=1  (200/200 good full-hit x)
+[PASS] A'' mech [col_AP_k3]: over-full line, chords=d.sec, sum<=k, deficit>=1  (200/200 good full-hit x)
+[PASS] A'' mech [diamond_k1(exp 0)]: over-full line, chords=d.sec, sum<=k, deficit>=1  (0/0 good full-hit x)
+[PASS] diamond (beta<1): good full-hit measure = 0 (A'' conclusion)  
+[PASS] A'' mech [tilt30_k1(exp 0)]: over-full line, chords=d.sec, sum<=k, deficit>=1  (0/0 good full-hit x)
+[PASS] tilt30_k1 (beta=0.995<1): good full-hit measure = 0 (A'' conclusion)  
+==============================================================================
+FAILURES: NONE
